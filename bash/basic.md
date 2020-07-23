@@ -103,7 +103,7 @@
     4
   ```
   
-  -Case 2:
+  - Case 2:
   ```
     count=1
     while [ $count -le 10 ]
@@ -128,7 +128,38 @@
   ```
   
   - Case 3:
+  ```
+    n=1
+    while :             # Inifite loop
+    do
+      printf "The current value of n is: $n\n"      # The usage of printf in bash
+      if [ $n == 3 ]
+      then
+        echo "Good!"
+      elif [ $n == 5 ]
+      then
+        echo "Shit!"
+      elif [ $n == 7 ]
+      then
+        exit 0              # The usage of exit 0 in bash
+      fi
+      (( n++ ))
+    done
+  ```
+  &emsp; Output:
+  ```
+  The current value of n is: 1
+  The current value of n is: 2
+  The current value of n is: 3
+  Good!
+  The current value of n is: 4
+  The current value of n is: 5
+  Shit!
+  The current value of n is: 6
+  The current value of n is: 7
+  ```
   
+### 2. For循环
 
 
 
