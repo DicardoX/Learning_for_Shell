@@ -18,9 +18,9 @@
 
 - 使用'bash'指令：
 
-  '''
-    bash xxx.sh
-  '''
+'''
+  bash xxx.sh
+'''
 
 - 使用'chmod a+x'指令修改文件权限：
   
