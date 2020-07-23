@@ -56,3 +56,27 @@
 ## Echo指令的使用
 &emsp; [Echo指令详解](http://www.zsythink.net/archives/96/)
 
+--------------
+
+## 注释与多行注释
+  - 单行注释：
+  ```
+    # This is a comment
+  ```
+  
+  - 多行注释：
+  ```
+    : '
+    This is a comment.
+    This is a comment.
+    '
+  ```
+ 
+ ------------
+ 
+ ## 循环
+
+
+
+
+
