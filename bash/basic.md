@@ -54,3 +54,5 @@
 --------------
 
 ## Echo指令的使用
+&emsp; [Echo指令详解](http://www.zsythink.net/archives/96/)
+
