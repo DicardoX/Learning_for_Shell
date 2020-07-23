@@ -104,6 +104,30 @@
   ```
   
   -Case 2:
+  ```
+    count=1
+    while [ $count -le 10 ]
+    do
+      if [ $count == 6 ]      # Can also use: $count -eq 6
+      then
+        echo "Terminated..."
+        break
+      fi
+      echo "Position: $count"     # Can use $ to print value of a variable in echo "xxxx"
+      (( count++ ))
+    done
+  ```
+  &emsp; Output:
+  ```
+    Position: 1
+    Position: 2
+    Position: 3
+    Position: 4
+    Position: 5
+    Terminated...
+  ```
+  
+  - Case 3:
   
 
 
