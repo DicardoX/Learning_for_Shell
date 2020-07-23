@@ -76,7 +76,32 @@
  
  ## 循环
 
+### 1. While循环
+&emsp; 基本格式为：
+  ```
+    while[ condition ]
+    do
+      commands
+    done
+  ```
+&emsp; 特别需要注意的是，在bash中对变量进行赋值时，不能在等号左右加空格，否则会报语法错误，即必须为`var=1`而不能是`var = 1`。
 
+  - Case 1:
+  ```
+    count=1
+    while [ $count -lt 5 ]   # When count < 5
+    do
+      echo $count             # Use $ to access the value of count
+      (( count++ ))           # The format for updating the counter
+    done
+  ```
+  Output:
+  ```
+    1
+    2
+    3
+    4
+  ```
 
 
 
