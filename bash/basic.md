@@ -95,13 +95,16 @@
       (( count++ ))           # The format for updating the counter
     done
   ```
-  Output:
+  &emsp; Output:
   ```
     1
     2
     3
     4
   ```
+  
+  -Case 2:
+  
 
 
 
