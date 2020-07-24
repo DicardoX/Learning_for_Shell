@@ -2,7 +2,7 @@
 
 ------
 
-[Bash Examples](https://linuxhint.com/30_bash_script_examples/)
+[整理自：Bash Examples](https://linuxhint.com/30_bash_script_examples/)
 
 ## Bash程序的创建和执行
 
