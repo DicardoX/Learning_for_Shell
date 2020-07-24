@@ -2,6 +2,8 @@
 
 ------
 
+[Bash Examples](https://linuxhint.com/30_bash_script_examples/)
+
 ## Bash程序的创建和执行
 
 ### 1.创建
@@ -160,6 +162,100 @@
   ```
   
 ### 2. For循环
+&emsp; 基本格式为：
+  ```
+    for variableName in lists
+    do
+      commands
+    done
+  ```
+  - Case 1:
+  ```
+    for color in Blue Green Pink White Red
+    do
+      echo "Color = $color"
+    done
+  ```
+  &emsp; Output:
+  ```
+    Color = Blue
+  Color = Green
+  Color = Pink
+  Color = White
+  Color = Red
+  ```
+  
+  - Case 2:
+  ```
+    ColorList=("Blue Green Pink White Red")           # Create the array and initialize it
+    for color in $ColorList                             # Access the array
+    do
+      if [ $color == 'Pink' ]
+      then
+        echo "My favorite color is $color"
+      fi
+    done
+  ```
+  &emsp; Output:
+  ```
+    My favorite color is Pink
+  ```
+  
+  - Case 3: Read Command-line Arguments
+  ```
+    for myval in $*                         # read command-line arguments
+    do
+      echo "Argument: $myval"
+    done
+  ```
+  &emsp; Output: (Assume that the command is: `bash Try.sh I love U`)
+  ```
+    Argument: I
+    Argument: love
+    Argument: U
+  ```
+  
+  - Case 4: Three expressions in for loop
+  ```
+    for (( n=1; n<=5; n++ ))
+    do
+      if (( $n % 2 == 0 ))
+      then
+        echo "$n is even"
+      else
+        echo "$n is odd"
+      fi
+    done
+  ```
+  &emsp; Output:
+  ```
+    1 is odd
+    2 is even
+    3 is odd
+    4 is even
+    5 is odd
+  ```
 
-
-
+  - Case 1: File Reading
+  ```
+    i=1
+    for day in `cat weekday.txt`            # File Operations
+    do
+      echo "Weekday: $i: $day"
+      (( i++ ))
+    done
+  ```
+  &emsp; Output:
+  ```
+    Weekday 1: Monday
+    Weekday 2: Tuesday
+    Weekday 3: Wednesday
+    Weekday 4: Thursday
+    Weekday 5: Friday
+    Weekday 6: Saturday
+    Weekday 7: Sunday
+  ```
+  
+  
+  
+  
