@@ -86,16 +86,16 @@
   ```
     echo "Enter your lucky number"
     read n
-    case $n in        # Start with this
-    101)              # Case 1: n = 101
+    case $n in                            # Start with this
+    101)                                  # Case 1: n = 101
     echo "You got 1st prize";;
-    510)              # Case 2: n = 510
+    510)                                  # Case 2: n = 510
     echo "You got 2nd prize";;
-    999)              # Case 3: n = 999
+    999)                                  # Case 3: n = 999
     echo "You got 3rd prize";;
-    *)                # Case 4: n = other value
+    *)                                    # Case 4: n = other value
     echo "Sorry, try next time...";;
-    esac              # End with this
+    esac                                  # End with this
   ```
   
 &emsp; Output:
