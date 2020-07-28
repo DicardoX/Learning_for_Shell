@@ -125,10 +125,95 @@
 
 ### 1. 方法一：使用参数变量（`argument variables`）：
 
-  &emsp; 参数变量从`$0`开始，主描述文件名（`main script file name`）存储在其中，用来接受从命令行参数参数值。如果来那个参数通过命令行被传递，则参数值被依次存储在$1和$2。
+&emsp; 参数变量从`$0`开始，主描述文件名（`main script file name`）存储在其中，用来接受从命令行参数参数值。如果来那个参数通过命令行被传递，则参数值被依次存储在$1和$2。
 
   - Case 1: 传递三个参数的数值
+  
+  ```
+    echo "Total number of arguments: $#"                # Counting total number of arguments, using "$#" to count
     
+    echo "First argument value: $1"                     # Reading argument values individually
+    echo "Second argument value $2"
+    echo "Third argument value: $3"
+    
+    for argval in "$@"                                  # Reading argument values using loop, using "$@" to read
+    do
+      echo -n "$argval "
+    done
+    
+    sum=$(($1+$2+$3))                                   # Adding argument values
+    
+    echo -e "\nResult of sum = $sum"                    # Print the result
+    
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh 1 2 3
+    Total number of arguments: 3
+    First argument value: 1
+    Second argument value 2
+    Third argument value: 3
+    1 2 3 
+    Result of sum = 6
+  ```
+
+  - Case 2: 将文件名作为参数
+  
+  ```
+    filename=$1
+    totalchar=`wc -c $filename`
+    echo "Total number of characters are $totalchar"
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh weekday.txt
+    Total number of characters are 57 weekday.txt                 # There are totally 57 characters in weekday.txt
+    dicardo@MacBook-Pro desktop % wc -c weekday.txt               # Separately call wc -c filename to figure out the number of characters in the file
+    57 weekday.txt
+  ```
+
+### 2. 方法二：通过`getopts`函数读取参数
+  
+&emsp; 可以通过`$OPTARG`来读取命令行参数。
+  
+  ```
+    while getopts ":i:n:m:e:" arg                                 # The usage of getopts function
+    do
+      case $arg in                                                # Use case structure
+        i) ID=$OPTARG;;
+        n) Name=$OPTARG;;
+        m) Manufacturing_date=$OPTARG;;
+        e) Expire_date=$OPTARG;;
+      esac
+    done
+    echo -e "\n$ID $Name $Manufacturing_date $Expire_date\n"
+  ```
+
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh -i p001 -n 'Hot Cake' -m '01-01-2018' -e '06-01-2018'
+
+    p001 Hot Cake 01-01-2018 06-01-2018
+
+    dicardo@MacBook-Pro desktop % bash Try.sh -i p001 -n Hot Cake -m '01-01-2018' -e '06-01-2018' 
+
+    p001 Hot  
+
+    dicardo@MacBook-Pro desktop % bash Try.sh -i p001 -n 'Hot Cake' -m 01-01-2018 -e '06-01-2018' 
+
+    p001 Hot Cake 01-01-2018 06-01-2018
+
+    dicardo@MacBook-Pro desktop % bash Try.sh -i 'p001' -n 'Hot Cake' -m '01-01-2018' -e '06-01-2018'
+
+    p001 Hot Cake 01-01-2018 06-01-2018
+  ```
+
+
 
 
 
