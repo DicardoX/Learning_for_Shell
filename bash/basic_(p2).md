@@ -237,5 +237,61 @@
     X+Y=15
   ```
 
+------------
+
+## 字符串操作
+
+### 1. 合并两个string变量：
+
+  ```
+    string1="Linux"
+    string2="Hint"
+    string3=$string1+$string2                             # Way 1, +
+    string4=$string1$string2                              # Way 2, directly connected
+    string3+=" is a good tutorial blog site"              # Way 3, +=
+    echo "$string1$string2"
+    echo $string3
+    echo $string4
+  ```
+
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh         
+    LinuxHint
+    Linux+Hint is a good tutorial blog site
+    LinuxHint
+  ```
+  
+### 2. 获得字符串的子串：
+
+&emsp; 格式为：
+
+  ```
+    subStr=${str:start:length}
+  ```
+&emsp; 其中，`start`为起始第start个字符（不包括空格），`length`为子串的长度。
+
+  ```
+    str="Learn Linux from LinuxHint"
+    subStr=${str:6:5}
+    echo $subStr
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh 
+    Linux
+  ```
+
+--------------
+
+
+
+
+
+
+
 
 
