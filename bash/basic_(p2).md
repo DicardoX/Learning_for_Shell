@@ -79,4 +79,45 @@
     dicardo@MacBook-Pro desktop % bash Try.sh
     Type your favorite color in 5 secs: %    
   ```
+-----------
+
+## Case语句的使用
+
+  ```
+    echo "Enter your lucky number"
+    read n
+    case $n in        # Start with this
+    101)              # Case 1: n = 101
+    echo "You got 1st prize";;
+    510)              # Case 2: n = 510
+    echo "You got 2nd prize";;
+    999)              # Case 3: n = 999
+    echo "You got 3rd prize";;
+    *)                # Case 4: n = other value
+    echo "Sorry, try next time...";;
+    esac              # End with this
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter your lucky number
+    777
+    Sorry, try next time...
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter your lucky number
+    101
+    You got 1st prize
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter your lucky number
+    510
+    You got 2nd prize
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter your lucky number
+    999
+    You got 3rd prize
+  ```
+
+
 
