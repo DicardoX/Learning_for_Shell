@@ -213,9 +213,29 @@
     p001 Hot Cake 01-01-2018 06-01-2018
   ```
 
+### 3. 从命令行获取带名字的参数：
+  
+  ```
+    for arg in "$@"
+    do
+      index=$(echo $arg | cut -f1 -d=)                      # 获取index，并切割掉=
+      val=$(echo $arg | cut -f2 -d=)                        # 获取val，并切割掉=
+      case $index in
+        X) x=$val;;
+        Y) y=$val;;
+        *)
+      esac
+    done
+    ((res=x+y))
+    echo "X+Y=$res"
+  ```
 
+&emsp; Output:
 
-
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh X=5 Y=10                                               
+    X+Y=15
+  ```
 
 
 
