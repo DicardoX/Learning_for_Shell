@@ -288,10 +288,128 @@
 --------------
 
 
+## 二元运算
 
+### 1. 使用`expr`指令：
 
+  ```
+    # Case 1
+    expr '10 + 30'
+    
+    # Case 2
+    expr 10+30                      # Wrong case, the output will be 10+30
+    
+    # Case 3
+    expr 10 + 30                    # Wrong case, the output will be 40, so we must add space between operands
+    
+    # Case 4
+    expr 30 % 9
+    
+    # Case 5
+    myVal1=`expr 30 / 10`            # Use expr command to initialize a variable (way 1)
+    echo $myVal1
+    
+    # Case 6
+    myVal2=$( expr 30 - 10 )        # Use expr command to initialize a variable (way 2)
+    echo $myVal2
+  ```
 
+&emsp; Output:
 
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    10 + 30
+    10+30
+    40
+    3
+    3
+    20
+  ```
 
+### 2. 使用`let`指令：
+
+  ```
+    # Case 1
+    let val1=9*3
+    echo $val1
+    
+    # Case 2
+    let "val2 = 8 / 3"
+    echo $val2
+    
+    # Case 3
+    let val3=7
+    let val3++
+    echo $val3
+    
+    # Case 4
+    let "val4=50+$1"              # Use the command argument
+    echo $val4
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh 40
+    27
+    2
+    8
+    90
+  ```
+  
+### 3. 使用双括号：
+
+  ```
+    # Case 1
+    val1=$((10*5+15))
+    echo $val1
+    
+    # Case 2
+    val2=41
+    ((val2--))
+    ((++val2))
+    ((val2++))
+    echo $val2
+    
+    # Case 3
+    val3=40
+    (( val3 += 60 ))
+    echo $val3
+    
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh   
+    65
+    42
+    100
+  ```
+
+### 4. 使用`bc`指令（针对float或double）：
+
+  ```
+    # Case 1:
+    echo "55/3" | bc
+    
+    # Case 2:
+    echo "55/3" | bc -l              
+    
+    # Case 3:
+    echo "scale=2; 55/3" | bc
+  ```
+&emsp; `bc -l`是定义使用的标准数学库，详见：[Linux中bc指令用法](https://www.runoob.com/linux/linux-comm-bc.html)
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh 
+    18
+    18.33333333333333333333
+    18.33
+  ```
+  
+  
 
 
