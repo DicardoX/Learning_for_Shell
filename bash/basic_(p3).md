@@ -8,3 +8,17 @@
 
 ### 1.简单的函数定义
 
+  ```
+    function F1()
+    {
+      echo "I like bash programming"
+    }
+    F1
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh 
+    I like bash programming
+  ```
