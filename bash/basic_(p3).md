@@ -52,23 +52,21 @@
       retval='I like programming'
     }
     retval='I hate programming'
-    echo $retval                          # Print 'hate'
+    echo $retval
     F1
-    echo $retval                          # Print 'like'
+    echo $retval
   ```
   
 &emsp; Output:
 
   ```
-    dicardo@MacBook-Pro desktop % bash Try.sh
+    dicardo@MacBook-Pro desktop % bash Try.sh              
     I hate programming
     I like programming
   ```
-  
+
   - Case 2: 使用函数指令：
-
-&emsp; 可以接收一个bash函数的返回值并在调用该函数时存储在一个变量中。
-
+  
   ```
     function F2()
     {
@@ -148,5 +146,74 @@
 
 ## 创建目录
 
+### 1. 简单的目录创建：
+
+  ```
+    echo "Enter directory name"
+    read newdir
+    `mkdir $newdir`                                         # Create the new directory
+  ```
   
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter directory name
+    xxx
+    dicardo@MacBook-Pro desktop % ls
+    Try.sh		weekday.txt	xxx
+  ```
   
+### 2. 基于检查目录是否存在的目录创建：
+
+  ```
+    echo "Enter directory name"
+    read newdir
+    if [ -d "$newdir" ]
+    then
+      echo "Directory exist"
+    else
+      `mkdir $newdir`
+      echo "Directory created"
+    fi
+  ```
+  
+&emsp; Output:
+
+  ```
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter directory name
+    xxx
+    Directory created
+    dicardo@MacBook-Pro desktop % bash Try.sh
+    Enter directory name
+    xxx
+    Directory exist
+  ```
+
+### 3. 多目录创建：
+
+  ```
+    dicardo@MacBook-Pro desktop % mkdir tmp1 tmp2 tmp3
+    dicardo@MacBook-Pro desktop % ls
+    Try.sh		tmp1		tmp2		tmp3		weekday.txt
+  ```
+  
+### 4. 使用`mkdir -p path`指令在不存在的路径中创建目录：
+
+&emsp; Error condition：
+  ```
+    dicardo@MacBook-Pro desktop % mkdir picture/newdir/test
+    mkdir: picture/newdir: No such file or directory
+  ```
+  
+$emsp; 使用`mkdir -p path`指令:
+  ```
+    
+  ```
+
+
+
+
+
+
