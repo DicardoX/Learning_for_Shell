@@ -207,10 +207,50 @@
     mkdir: picture/newdir: No such file or directory
   ```
   
-$emsp; 使用`mkdir -p path`指令:
+&emsp; 使用`mkdir -p path`指令:
   ```
-    
+    dicardo@MacBook-Pro desktop % mkdir -p picture/newdir/test
+    dicardo@MacBook-Pro desktop % cd picture
+    dicardo@MacBook-Pro picture % ls -R
+    newdir
+
+    ./newdir:
+    test
+
+    ./newdir/test:
   ```
+
+### 5. 创建带权限的目录：
+
+&emsp; 使用`stat`指令查看目录权限：
+  ```
+    dicardo@ubuntu:~/桌面$ mkdir newdir
+    dicardo@ubuntu:~/桌面$ stat newdir/
+    文件：newdir/
+    大小：4096      	块：8          IO 块：4096   目录
+    设备：805h/2053d	Inode：396209      硬链接：2
+    权限：(0775/drwxrwxr-x)  Uid：( 1000/ dicardo)   Gid：( 1000/ dicardo)
+    最近访问：2020-08-11 16:43:43.371211359 +0800
+    最近更改：2020-08-11 16:43:43.371211359 +0800
+    最近改动：2020-08-11 16:43:43.371211359 +0800
+    创建时间：-
+
+  ```
+  
+&emsp; 使用`mkdir -m`来设置目录权限：
+  ```
+    dicardo@ubuntu:~/桌面$ mkdir -m 777 newdir
+    dicardo@ubuntu:~/桌面$ stat newdir
+    文件：newdir
+    大小：4096      	块：8          IO 块：4096   目录
+    设备：805h/2053d	Inode：393274      硬链接：2
+    权限：(0777/drwxrwxrwx)  Uid：( 1000/ dicardo)   Gid：( 1000/ dicardo)
+    最近访问：2020-08-11 16:46:09.174257613 +0800
+    最近更改：2020-08-11 16:46:09.170255037 +0800
+    最近改动：2020-08-11 16:46:09.170255037 +0800
+    创建时间：-
+  ```
+
 
 
 
